@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Base & Root Settings
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: #09090b;
+  color: #f4f4f5;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Page Wrapper
+   ========================================================================== */
+.userbox {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #09090b, #111827, #0f172a);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+.usernavbar {
+  height: 75px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.usernavbar > p {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 18px;
+  border-radius: 14px;
+}
+
+.userinfo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #232323;
+  object-fit: cover;
+}
+
+.userinfo p {
+  color: #d4d4d8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Main Body & Sidebar Layout
+   ========================================================================== */
+.usercontents {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.usersidebar {
+  width: 250px;
+  min-height: calc(100vh - 75px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 35px;
+  position: sticky;
+  top: 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.usersidebar div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 10px 18px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.usersidebar div:hover {
+  background: rgba(99, 102, 241, 0.18);
+  transform: translateX(8px);
+}
+
+/* Highlight "Users" sidebar tab as active */
+.usersidebar div:nth-child(3) {
+  background: rgba(99, 102, 241, 0.25);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+/* Logout Button styling */
+.usersidebar div:last-child {
+  margin-top: auto;
+  margin-bottom: 35px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.usersidebar div:last-child:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.usersidebar div:last-child p {
+  color: #f87171;
+}
+
+.usersidebar div:last-child:hover p {
+  color: #ffffff;
+}
+
+.usersidebar img {
+  width: 24px;
+  height: 24px;
+  background: #2d2d2d;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.usersidebar p {
+  color: #d4d4d8;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Main Content Area */
+.usermain {
+  flex: 1;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ==========================================================================
+   Search Input Section
+   ========================================================================== */
+.usersearch input {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.usersearch input::placeholder {
+  color: #9ca3af;
+}
+
+.usersearch input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   User Cards & Grid
+   ========================================================================== */
+.userusers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.userusers h2 {
+  color: #9ca3af;
+  grid-column: 1 / -1;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.useruser {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.35s ease;
+}
+
+.useruser:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.useruser p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Highlight user info labels */
+.useruser p:first-child {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+
+.useruser p:nth-child(3) {
+  text-transform: capitalize;
+  color: #a5b4fc;
+  font-weight: 500;
+}
+
+.useruser p:last-child {
+  background: rgba(99, 102, 241, 0.1);
+  color: #c7d2fe;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Custom Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 900px) {
+  .usercontents {
+    flex-direction: column;
+  }
+
+  .usersidebar {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 15px;
+    position: static;
+  }
+
+  .usersidebar div {
+    min-width: 160px;
+    margin: 0 6px;
+  }
+
+  .usersidebar div:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .usernavbar {
+    padding: 18px;
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .userinfo {
+    width: 100%;
+  }
+
+  .usermain {
+    padding: 20px;
+  }
+
+  .usersearch input {
+    max-width: 100%;
+  }
+
+  .userusers {
+    grid-template-columns: 1fr;
+  }
+}

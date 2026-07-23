@@ -1,0 +1,580 @@
+/* ==========================================================================
+   Base & Root Settings
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: #09090b;
+  color: #f4f4f5;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Page Layout
+   ========================================================================== */
+.events-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #09090b, #111827, #0f172a);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+.events-navbar {
+  height: 75px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.events-navbar > p {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.events-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 18px;
+  border-radius: 14px;
+}
+
+.events-user-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #232323;
+  object-fit: cover;
+}
+
+.events-user-info p {
+  color: #d4d4d8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Main Body & Sidebar Layout
+   ========================================================================== */
+.events-layout {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.events-sidebar {
+  width: 250px;
+  min-height: calc(100vh - 75px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 35px;
+  position: sticky;
+  top: 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.events-sidebar div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 10px 18px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.events-sidebar div:hover {
+  background: rgba(99, 102, 241, 0.18);
+  transform: translateX(8px);
+}
+
+.events-sidebar div:last-child {
+  margin-top: auto;
+  margin-bottom: 35px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.events-sidebar div:last-child:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.events-sidebar div:last-child p {
+  color: #f87171;
+}
+
+.events-sidebar div:last-child:hover p {
+  color: #ffffff;
+}
+
+.events-sidebar img {
+  width: 24px;
+  height: 24px;
+  background: #2d2d2d;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.events-sidebar p {
+  color: #d4d4d8;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Main Content Area */
+.events-main {
+  flex: 1;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Search & Filter Section
+   ========================================================================== */
+.events-search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.events-search-section input {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.events-search-section input::placeholder {
+  color: #9ca3af;
+}
+
+.events-search-section input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.events-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.events-filter-buttons button,
+.events-create-section button,
+.events-bottom button {
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.events-filter-buttons button {
+  padding: 11px 22px;
+  background: #1e293b;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.events-filter-buttons button:hover {
+  background: #6366f1;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.3);
+}
+
+.events-create-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.events-create-section button {
+  padding: 14px 26px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  font-size: 0.95rem;
+}
+
+.events-create-section button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+}
+
+/* ==========================================================================
+   Events Grid & Cards
+   ========================================================================== */
+.events-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.events-grid h2 {
+  color: #ffffff;
+  grid-column: 1 / -1;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 40px 0;
+  color: #9ca3af;
+}
+
+.events-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.events-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.events-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #111827;
+  transition: transform 0.35s ease;
+}
+
+.events-card:hover img {
+  transform: scale(1.05);
+}
+
+.events-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.events-card-content h2 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  text-align: left;
+  padding: 0;
+}
+
+.events-card-content p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+}
+
+/* Event Detail Tags */
+.events-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.events-details span {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Card Bottom Section & Actions */
+.events-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+}
+
+.events-bottom span {
+  color: #d4d4d8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.events-bottom button {
+  padding: 13px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.events-bottom button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   Custom Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 900px) {
+  .events-layout {
+    flex-direction: column;
+  }
+
+  .events-sidebar {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 15px;
+    position: static;
+  }
+
+  .events-sidebar div {
+    min-width: 160px;
+    margin: 0 6px;
+  }
+
+  .events-sidebar div:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .events-navbar {
+    padding: 18px;
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .events-user-info {
+    width: 100%;
+  }
+
+  .events-main {
+    padding: 20px;
+  }
+
+  .events-search-section input {
+    max-width: 100%;
+  }
+
+  .events-create-section {
+    justify-content: flex-start;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Main Body & Sidebar Layout (Fixed Bottom Logout)
+   ========================================================================== */
+.events-layout,
+.usercontents {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar Container */
+.events-sidebar,
+.usersidebar {
+  width: 250px;
+  height: calc(100vh - 75px); /* Strictly lock sidebar height to screen */
+  position: sticky;
+  top: 75px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes top links up and logout down */
+  z-index: 90;
+}
+
+/* Grouping wrapper for top navigation links (Overview, Events, Users, Profile) */
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Scrollable if sidebar menu items grow */
+  gap: 6px;
+}
+
+/* Common styling for menu items */
+.events-sidebar div,
+.usersidebar div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 6px 18px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.events-sidebar div:hover,
+.usersidebar div:hover {
+  background: rgba(99, 102, 241, 0.18);
+  transform: translateX(6px);
+}
+
+.events-sidebar img,
+.usersidebar img {
+  width: 24px;
+  height: 24px;
+  background: #2d2d2d;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.events-sidebar p,
+.usersidebar p {
+  color: #d4d4d8;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Logout Button (Always Visible at Bottom)
+   -------------------------------------------------------------------------- */
+.events-sidebar div:last-child,
+.usersidebar div:last-child {
+  margin-top: auto; /* Fallback pin */
+  margin-bottom: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.events-sidebar div:last-child:hover,
+.usersidebar div:last-child:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.events-sidebar div:last-child p,
+.usersidebar div:last-child p {
+  color: #f87171;
+}
+
+.events-sidebar div:last-child:hover p,
+.usersidebar div:last-child:hover p {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Mobile & Tablet Horizontal Scroll)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .events-layout,
+  .usercontents {
+    flex-direction: column;
+  }
+
+  .events-sidebar,
+  .usersidebar {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px 12px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sidebar-links {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .events-sidebar div,
+  .usersidebar div {
+    min-width: 130px;
+    margin: 0 4px;
+    padding: 10px 14px;
+    justify-content: center;
+  }
+
+  .events-sidebar div:last-child,
+  .usersidebar div:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto; /* Keeps logout on far right of mobile top bar */
+  }
+}
+.events-filter-buttons button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.events-create-section button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

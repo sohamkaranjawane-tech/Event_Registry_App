@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Base & Root Settings
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: #09090b;
+  color: #f4f4f5;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Page Wrapper
+   ========================================================================== */
+.profilebox {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #09090b, #111827, #0f172a);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+.profilenavbar {
+  height: 75px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profilenavbar > p {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.profileinfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 18px;
+  border-radius: 14px;
+}
+
+.profileinfo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #232323;
+  object-fit: cover;
+}
+
+.profileinfo p {
+  color: #d4d4d8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Main Layout & Sidebar (Fixed Logout at Bottom)
+   ========================================================================== */
+.profilecontents {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar Container */
+.profilesidebar {
+  width: 250px;
+  height: calc(100vh - 75px); /* Lock sidebar height to exact viewport */
+  position: sticky;
+  top: 75px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 90;
+}
+
+/* Navigation items */
+.profilesidebar div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 6px 18px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profilesidebar div:hover {
+  background: rgba(99, 102, 241, 0.18);
+  transform: translateX(6px);
+}
+
+/* Highlight "Profile" tab as active */
+.profilesidebar div:nth-child(4) {
+  background: rgba(99, 102, 241, 0.25);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+/* Logout Button — Pinned at the Bottom */
+.profilesidebar div:last-child {
+  margin-top: auto; /* Pushes button to bottom of container */
+  margin-bottom: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.profilesidebar div:last-child:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.profilesidebar div:last-child p {
+  color: #f87171;
+}
+
+.profilesidebar div:last-child:hover p {
+  color: #ffffff;
+}
+
+.profilesidebar img {
+  width: 24px;
+  height: 24px;
+  background: #2d2d2d;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profilesidebar p {
+  color: #d4d4d8;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Profile Main Content Area
+   ========================================================================== */
+.profilemain {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+}
+
+/* Profile Field Cards */
+.namee,
+.email {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.namee:hover,
+.email:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.namee p:first-child,
+.email p:first-child {
+  color: #a5b4fc;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.namee p:last-child,
+.email p:last-child {
+  color: #f4f4f5;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Custom Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 900px) {
+  .profilecontents {
+    flex-direction: column;
+  }
+
+  .profilesidebar {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .profilesidebar div {
+    min-width: 130px;
+    margin: 0 4px;
+    padding: 10px 14px;
+    justify-content: center;
+  }
+
+  .profilesidebar div:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto; /* Keeps logout button to the right end on mobile top bar */
+  }
+
+  .profilenavbar {
+    padding: 18px;
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .profileinfo {
+    width: 100%;
+  }
+
+  .profilemain {
+    padding: 20px;
+    width: 100%;
+  }
+}

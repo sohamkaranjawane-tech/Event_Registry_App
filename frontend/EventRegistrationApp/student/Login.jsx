@@ -27,7 +27,8 @@ const Login = () => {
       return;
     }
     if(role === "admin" && id !== "12345678"){
-      alert("Invalid Admin Id")
+      alert("Invalid Admin Id");
+      return;
     }
     if(role === "student"){
       if(!email.endsWith("@gmail.com")){

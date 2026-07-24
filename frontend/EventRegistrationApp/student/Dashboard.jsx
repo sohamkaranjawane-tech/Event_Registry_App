@@ -22,7 +22,7 @@ const Dashboard = () => {
       }
       try {
         const response = await fetch(
-          "http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent",
+          "https://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent",
           {
             method: "GET",
             headers: {

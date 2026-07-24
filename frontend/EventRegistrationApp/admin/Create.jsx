@@ -7,7 +7,7 @@ import {
   Users,
   UserCircle2,
   LogOut,
-  ArrowLeft
+  ArrowLeft,
 } from "lucide-react";
 const Create = () => {
   const navigate = useNavigate();
@@ -25,10 +25,10 @@ const Create = () => {
     const eventDate = new Date(date).setHours(0, 0, 0, 0);
     const deadlineDate = new Date(dead).setHours(0, 0, 0, 0);
 
-    if (today < eventDate) {
+    if (today < deadlineDate) {
       return "upcoming";
-    } else if (today <= deadlineDate) {
-      return "ongoing";
+    } else if (today < eventDate) {
+      return "registration closed";
     } else {
       return "completed";
     }
@@ -65,7 +65,7 @@ const Create = () => {
             registrationDeadline: deadline,
             venue,
             type,
-            createdBy: user.username ,
+            createdBy: user.username,
             status,
             registeredStudents: [],
           }),
@@ -96,15 +96,21 @@ const Create = () => {
       setLoading(false);
     }
   }
-const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="container">
-        <div className="navbar">
+      <div className="navbar">
         <div className="first">
-            <button onClick={()=>{
-                navigate('/events');
-            }} id="madhe"><ArrowLeft size={22} />back</button>
-            <p>Registered Users</p>
+          <button
+            onClick={() => {
+              navigate("/events");
+            }}
+            id="madhe"
+          >
+            <ArrowLeft size={22} />
+            back
+          </button>
+          <p>Registered Users</p>
         </div>
       </div>
       <form onSubmit={handleSubmit} className="form">

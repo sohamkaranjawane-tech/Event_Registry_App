@@ -32,7 +32,7 @@ const Profile = () => {
       }
       try {
         const response = await fetch(
-          "http://feisty-upliftment-production-6040.up.railway.app/authRoute/profile",
+          "https://feisty-upliftment-production-6040.up.railway.app/authRoute/profile",
           {
             headers: {
               authorization: `Bearer ${token}`,

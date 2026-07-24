@@ -22,11 +22,11 @@ const Login = () => {
       }
       
     }
-    if(!id.trim()){
+    if(role === "admin" && !id.trim()){
       alert("Please enter Teacher ID");
       return;
     }
-    if( id !== "12345678"){
+    if(role === "admin" && id !== "12345678"){
       alert("Invalid Admin Id")
     }
     if(role === "student"){
@@ -36,7 +36,7 @@ const Login = () => {
       }
     }
     try {
-      const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/login", {
+      const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/authRoute/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

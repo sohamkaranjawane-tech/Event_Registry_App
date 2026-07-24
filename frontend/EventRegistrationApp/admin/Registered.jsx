@@ -33,7 +33,7 @@ const Registered = () => {
         console.log("User: ",user);
         setName(user);
         const response = await fetch(
-          `http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getUsersRegistered/${id}`,
+          `https://feisty-upliftment-production-6040.up.railway.app/eventRoute/getUsersRegistered/${id}`,
           {
             method: "GET",
             headers: {

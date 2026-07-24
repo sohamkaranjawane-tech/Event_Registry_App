@@ -43,7 +43,7 @@ const Users = () => {
         console.log("User: ",user);
         setName(user);
 
-        const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
+        const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

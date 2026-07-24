@@ -25,7 +25,7 @@ const MyEventsPage = () => {
         }
 
         const response = await fetch(
-          `http://feisty-upliftment-production-6040.up.railway.app/authRoute/getUser/${user.id}`,
+          `https://feisty-upliftment-production-6040.up.railway.app/authRoute/getUser/${user.id}`,
           {
             method: "GET",
             headers: {

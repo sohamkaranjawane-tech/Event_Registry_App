@@ -55,7 +55,7 @@ const Dashboard = () => {
         return;
       }
       const response = await fetch(
-        `http://feisty-upliftment-production-6040.up.railway.app/eventRoute/addEvent/${user.id}`,
+        `https://feisty-upliftment-production-6040.up.railway.app/eventRoute/addEvent/${user.id}`,
         {
           method: "PUT",
           headers: {

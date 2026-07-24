@@ -50,7 +50,7 @@ const Overview = () => {
       }
 
       try {
-        const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent", {
+        const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -59,7 +59,7 @@ const Overview = () => {
         const data = await response.json();
         setEvent(data);
 
-        const userResponse = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
+        const userResponse = await fetch("https://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

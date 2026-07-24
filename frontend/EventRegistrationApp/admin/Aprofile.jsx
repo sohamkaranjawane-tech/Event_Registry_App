@@ -59,7 +59,10 @@ const Aprofile = () => {
             <UserCircle2 size={22} />
             <p>Profile</p>
           </div>
-          <div onClick={()=>nav('/login')}>
+          <div onClick={()=>{
+            localStorage.clear();
+            navigate('/')
+          }}>
             <LogOut size={22} />
             <p>Logout</p>
           </div>

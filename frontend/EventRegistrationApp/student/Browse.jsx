@@ -33,7 +33,7 @@ const Browse = () => {
       }
       try {
         const response = await fetch(
-          "http://localhost:3000/eventRoute/getEvent",
+          "http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent",
           {
             method: "GET",
             headers: {
@@ -106,7 +106,7 @@ const Browse = () => {
         return;
       }
       const response = await fetch(
-        `http://localhost:3000/eventRoute/addEvent/${user.id}`,
+        `http://feisty-upliftment-production-6040.up.railway.app/eventRoute/addEvent/${user.id}`,
         {
           method: "PUT",
           headers: {
@@ -173,7 +173,7 @@ const Browse = () => {
           <div
             onClick={() => {
               localStorage.clear();
-              navigate("/login");
+              navigate("/");
             }}
             className="browse-sidebar-item"
           >

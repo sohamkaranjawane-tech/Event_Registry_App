@@ -49,7 +49,7 @@ const Create = () => {
       const status = calStat(date, deadline);
 
       const response = await fetch(
-        "http://localhost:3000/eventRoute/postEvent",
+        "http://feisty-upliftment-production-6040.up.railway.app/eventRoute/postEvent",
         {
           method: "POST",
           headers: {

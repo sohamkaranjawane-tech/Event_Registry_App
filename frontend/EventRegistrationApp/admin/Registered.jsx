@@ -33,7 +33,7 @@ const Registered = () => {
         console.log("User: ",user);
         setName(user);
         const response = await fetch(
-          `http://localhost:3000/eventRoute/getUsersRegistered/${id}`,
+          `http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getUsersRegistered/${id}`,
           {
             method: "GET",
             headers: {

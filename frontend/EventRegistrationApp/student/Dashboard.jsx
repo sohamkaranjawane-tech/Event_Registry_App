@@ -22,7 +22,7 @@ const Dashboard = () => {
       }
       try {
         const response = await fetch(
-          "http://localhost:3000/eventRoute/getEvent",
+          "http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent",
           {
             method: "GET",
             headers: {
@@ -55,7 +55,7 @@ const Dashboard = () => {
         return;
       }
       const response = await fetch(
-        `http://localhost:3000/eventRoute/addEvent/${user.id}`,
+        `http://feisty-upliftment-production-6040.up.railway.app/eventRoute/addEvent/${user.id}`,
         {
           method: "PUT",
           headers: {
@@ -128,7 +128,7 @@ const Dashboard = () => {
           <div
             onClick={() => {
               localStorage.clear();
-              navigate("/login");
+              navigate("/");
             }}
             className="dash-sidebar-item"
           >

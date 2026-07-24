@@ -6,16 +6,37 @@ import login from "../src/assets/login.png";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const role = location.state?.role;
 
+  const [role] = useState(location.state?.role || "student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
 
   async function getApi(e) {
     e.preventDefault();
 
+    if (role === "admin" ) {
+      if(!email.endsWith("@bvj.com")){
+        alert("Enter Admins Email Properly ")
+        return;
+      }
+      
+    }
+    if(!id.trim()){
+      alert("Please enter Teacher ID");
+      return;
+    }
+    if( id !== "12345678"){
+      alert("Invalid Admin Id")
+    }
+    if(role === "student"){
+      if(!email.endsWith("@gmail.com")){
+        alert("Enter Students Email Properly ")
+        return;
+      }
+    }
     try {
-      const response = await fetch("http://localhost:3000/authRoute/login", {
+      const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,6 +45,7 @@ const Login = () => {
           email,
           password,
           role,
+          id,
         }),
       });
 
@@ -33,17 +55,15 @@ const Login = () => {
         throw new Error(data.message);
       }
 
-      console.log(data);
-
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      
+
       alert("Login Successful");
-      if(data.user.role === 'admin'){
-        navigate('/overview');
-      }
-      else{
-      navigate("/dashboard");
+
+      if (data.user.role === "admin") {
+        navigate("/overview");
+      } else {
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log(err.message);
@@ -56,7 +76,9 @@ const Login = () => {
       <div className="login-card">
         <div className="login-text">
           <img src={login} alt="icon" id="login-logo" />
-          <p className="login-title">Login</p>
+          <p className="login-title">
+            {role === "admin" ? "Admin Login" : "Student Login"}
+          </p>
           <p className="login-subtitle">Welcome back!</p>
         </div>
 
@@ -85,12 +107,28 @@ const Login = () => {
             />
           </div>
 
+          {role === "admin" && (
+            <div className="login-input-group">
+              <label htmlFor="login-id">Admin's ID</label>
+              <input
+                id="login-id"
+                type="number"
+                placeholder="Enter your Admin's ID..."
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+                required
+              />
+            </div>
+          )}
+
           <div className="login-forgot-password">
             <a href="#">Forgot Password?</a>
           </div>
 
           <div className="login-button">
-            <button type="submit">Login</button>
+            <button type="submit">
+              Login
+            </button>
           </div>
         </form>
 
@@ -100,7 +138,7 @@ const Login = () => {
             id="login-anchor"
             onClick={() =>
               navigate("/signup", {
-                state: { role: role || "student" },
+                state: { role },
               })
             }
           >

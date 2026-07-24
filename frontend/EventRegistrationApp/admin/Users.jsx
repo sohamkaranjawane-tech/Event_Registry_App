@@ -43,7 +43,7 @@ const Users = () => {
         console.log("User: ",user);
         setName(user);
 
-        const response = await fetch("http://localhost:3000/authRoute/getAllUser", {
+        const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -91,7 +91,10 @@ const Users = () => {
             <UserCircle2 size={22} />
             <p>Profile</p>
           </div>
-          <div onClick={()=>nav('/login')}>
+          <div onClick={()=>{
+            localStorage.clear();
+            navigate('/');
+          }}>
             <LogOut size={22} />
             <p>Logout</p>
           </div>

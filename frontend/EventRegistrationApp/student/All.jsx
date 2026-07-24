@@ -25,7 +25,7 @@ const MyEventsPage = () => {
         }
 
         const response = await fetch(
-          `http://localhost:3000/authRoute/getUser/${user.id}`,
+          `http://feisty-upliftment-production-6040.up.railway.app/authRoute/getUser/${user.id}`,
           {
             method: "GET",
             headers: {
@@ -103,7 +103,7 @@ const MyEventsPage = () => {
           <div
             onClick={() => {
               localStorage.clear();
-              navigate("/login");
+              navigate("/");
             }}
             className="myevents-sidebar-item"
           >

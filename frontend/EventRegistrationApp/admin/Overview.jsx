@@ -50,7 +50,7 @@ const Overview = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:3000/eventRoute/getEvent", {
+        const response = await fetch("http://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -59,7 +59,7 @@ const Overview = () => {
         const data = await response.json();
         setEvent(data);
 
-        const userResponse = await fetch("http://localhost:3000/authRoute/getAllUser", {
+        const userResponse = await fetch("http://feisty-upliftment-production-6040.up.railway.app/authRoute/getAllUser", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -111,7 +111,10 @@ const Overview = () => {
             <UserCircle2 size={22} />
             <p>Profile</p>
           </div>
-          <div onClick={() => nav("/login")}>
+          <div onClick={()=>{
+            localStorage.clear();
+            navigate('/')
+          }}>
             <LogOut size={22} />
             <p>Logout</p>
           </div>

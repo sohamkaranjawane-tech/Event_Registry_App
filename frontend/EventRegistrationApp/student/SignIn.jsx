@@ -9,7 +9,7 @@ import sign from "../src/assets/sign.png";
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const role = location.state?.role;
+  const role = location.state?.role || "student";
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -17,8 +17,21 @@ const SignIn = () => {
 
   async function getApi(e) {
     e.preventDefault();
+    if (role === "admin" ) {
+      if(!email.endsWith("@bvj.com")){
+        alert("Enter Admins Email Properly ")
+        return;
+      }
+      
+    }
+    if(role === "student"){
+      if(!email.endsWith("@gmail.com")){
+        alert("Enter Students Email Properly ")
+        return;
+      }
+    }
     try {
-      const response = await fetch("http://localhost:3000/authRoute/signIn", {
+      const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent/authRoute/signIn", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +53,11 @@ const SignIn = () => {
 
       console.log(data);
       alert("Registered Successfully");
-      navigate("/login");
+      navigate("/login",{
+        state:{
+          role: role || "student" 
+        }
+      });
     } catch (err) {
       console.log(err.message);
       alert(err.message);

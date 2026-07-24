@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const connectDB = require("./db/db");
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
@@ -13,7 +13,10 @@ const eventRoute = require('./routes/eventRoute');
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://event-registry-app.vercel.app",
+    origin: [
+        "http://localhost:5173",
+        "https://event-registry-app.vercel.app"
+    ],
     credentials: true
 }));
 

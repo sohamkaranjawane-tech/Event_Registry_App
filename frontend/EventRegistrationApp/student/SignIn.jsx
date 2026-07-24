@@ -31,7 +31,7 @@ const SignIn = () => {
       }
     }
     try {
-      const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/eventRoute/getEvent/authRoute/signIn", {
+      const response = await fetch("https://feisty-upliftment-production-6040.up.railway.app/authRoute/signIn", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
